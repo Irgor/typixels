@@ -1,0 +1,44 @@
+<main class="main-section">
+  <section class="intro" id="intro" [class]="actionDone ? 'skip' : ''">
+    <p>This game uses nothing but the keyboard, There is no mouse actions.</p>
+    <p>Enable sound for a better experience</p>
+    <br />
+    <br />
+    <br />
+    <button (click)="start()">
+      {{ intro == "skip" ? "Continue" : "Start" }}
+    </button>
+  </section>
+
+  <section class="user-type-section">
+    <p class="game-title">Typixels</p>
+
+    <div class="user-type-container">
+      <input
+        #userType
+        type="text"
+        id="user-type"
+        name="user-type"
+        autofocus
+        autocomplete="off"
+        [(ngModel)]="userTypeValue"
+        (input)="handleUserType()"
+        [disabled]="disableUserType"
+      />
+      <div id="type-foreshadow">
+        @for (letter of currentMove.letters; track letter) {
+        <span [class]="letter.match">{{ letter.value }}</span>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="right-side">
+    <div id="points" class="points">Points: {{ points }}</div>
+  </section>
+
+  <section class="game pause" #game id="game">
+    <div id="player" #player class="player"></div>
+    <div id="enemy" #enemy class="enemy"></div>
+  </section>
+</main>

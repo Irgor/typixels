@@ -1,0 +1,195 @@
+.main-section {
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
+  background-color: #10002B;
+  color: #E0AAFF;
+  font-family: "Jersey 25", sans-serif;
+  position: relative;
+  animation: fadein 2s ease-in-out 1;
+}
+
+.intro {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100dvw;
+  height: 100dvh;
+  background-color: #10002B;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  font-size: 3rem;
+
+  button {
+    all: unset;
+    cursor: pointer;
+    font-size: 4rem;
+    transition: all .2s linear;
+    border-bottom: 4px solid #E0AAFF;
+    padding: 0px 10px;
+  }
+
+  button:hover {
+    text-shadow: 6px 6px 1px #5A189A;
+  }
+}
+
+.skip {
+  display: none;
+}
+
+.user-type-section {
+  width: 40%;
+  height: 18rem;
+  padding: 20px;
+  box-shadow: 6px 6px 1px #240046;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1;
+
+  p.game-title {
+    font-size: 6rem;
+    text-shadow: 4px 4px 1px #5A189A;
+  }
+
+  .user-type-container {
+    position: relative;
+    margin-left: 20px;
+    font-size: 3rem;
+  }
+
+  #user-type {
+    all: unset;
+    border-bottom: 1px solid #E0AAFF80;
+    padding: 4px 8px;
+    color: transparent;
+    caret-color: #E0AAFF;
+    width: 95%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+
+  #type-foreshadow {
+    position: absolute;
+    top: 4px;
+    left: 8px;
+
+    .idle {
+      opacity: 0.2;
+    }
+
+    .correct {
+      opacity: 1;
+      animation: step .3s ease-in-out 1;
+    }
+
+    .wrong {
+      opacity: 1;
+      color: red;
+    }
+
+  }
+}
+
+.right-answer {
+  animation: rightanswer .2s ease-in-out 1;
+  animation-delay: 0s;
+  transition: all .2s ease-in-out;
+}
+
+@keyframes fadein {
+
+  0%,
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes rightanswer {
+
+  0%,
+  40%,
+  100% {
+    margin-left: 0px;
+    margin-top: 0px;
+  }
+
+  20%,
+  80% {
+    margin-left: -8px;
+    margin-top: -2px;
+  }
+
+  60% {
+    margin-left: 8px;
+    margin-top: 2px;
+  }
+}
+
+@keyframes step {
+  0% {
+    font-size: 3.8rem;
+    margin: 2px;
+  }
+
+  100% {
+    font-size: 3rem;
+    margin: 0;
+  }
+}
+
+
+.game {
+  width: 100%;
+  height: 60%;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  box-sizing: border-box;
+  background-size: contain;
+
+  #player {
+    width: 100px;
+    height: 150px;
+    background-color: deeppink;
+    bottom: 14%;
+    position: absolute;
+  }
+
+  #enemy {
+    width: 150px;
+    height: 60px;
+    border-radius: 24px;
+    background-color: red;
+    bottom: 14%;
+    transform: translateY(-50%);
+    position: absolute;
+    display: none;
+  }
+}
+
+.pause {
+  background-image: url('/assets/images/bg.png');
+}
+
+.play {
+  background-image: url('/assets/images/animated.gif');
+}
+
+.right-side {
+  position: absolute;
+  width: 40%;
+  top: 0;
+  right: 0;
+  font-size: 4rem;
+  text-align: center;
+}
